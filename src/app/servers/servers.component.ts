@@ -12,13 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer: boolean = false;
+  serverCretionStatus: string= 'No Server was creted!';
+  serverName: string;
 
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
+      console.log(this.allowNewServer);
     }, 2000);
 
   }
   ngOnInit() {
+  }
+  onCreateServer(){
+    this.serverCretionStatus='New Server was created!';
+  }
+  onUpdateServerName(event: Event){
+    // console.log(event);
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 }
